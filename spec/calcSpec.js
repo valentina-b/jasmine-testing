@@ -7,7 +7,9 @@ describe("Calculator", function(){
             expect(addition(19, 7)).toBe(26);
         });
         it("should return an error if we don't supply two numbers", function(){
-            expect(addition("Hi", "Bye")).toBe("Error!");
+            spyOn(window, "alert");
+            addition("Hi", "Bye");
+            expect(window.alert).toHaveBeenCalledWith("Error!");
         });
     });
 });
